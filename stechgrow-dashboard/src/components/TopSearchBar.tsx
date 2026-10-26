@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 
 export interface TopSearchBarProps {
   placeholder?: string;
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }
 
@@ -18,36 +18,29 @@ export default function TopSearchBar({
 
   return (
     <div
-      className={`w-[496.1px] h-[86px] bg-[#1E1E1E] rounded-[20px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border border-white/5 flex items-center px-6 gap-4 select-none ${className}`}
+      className={`w-[496px] h-[86px] bg-[#1E1E1E] rounded-[20px] shadow-md border border-white/5 flex items-center px-6 gap-4 select-none ${className}`}
     >
-      {/* Search Icon */}
       <svg
         width="24"
         height="24"
         viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="shrink-0"
+        fill="currentColor"
+        className="shrink-0 text-white"
       >
         <path
-          d="M1.21387 10.193C1.21387 5.23344 5.23441 1.21289 10.194 1.21289C15.1536 1.21289 19.1741 5.23344 19.1741 10.193C19.1741 15.1526 15.1536 19.1732 10.194 19.1732C5.23441 19.1732 1.21387 15.1526 1.21387 10.193ZM10.194 2.66913C6.03866 2.66913 2.6701 6.03769 2.6701 10.193C2.6701 14.3483 6.03866 17.7169 10.194 17.7169C14.3493 17.7169 17.7179 14.3483 17.7179 10.193C17.7179 6.03769 14.3493 2.66913 10.194 2.66913Z"
+          d="M1.21 10.19a8.98 8.98 0 1 1 17.96 0 8.98 8.98 0 0 1-17.96 0Zm8.98-7.52a7.52 7.52 0 1 0 0 15.05 7.52 7.52 0 0 0 0-15.05Z"
           fillRule="evenodd"
           clipRule="evenodd"
-          fill="white"
         />
-        <path
-          d="M19.2478 21.3264C18.7034 21.2594 18.1883 20.9551 17.8761 20.4348L16.8156 18.6674C16.497 18.1362 16.5807 17.4564 17.0186 17.0184C17.3036 16.7335 17.6907 16.5985 18.0728 16.6267C18.2782 16.6417 18.4821 16.704 18.6678 16.8154L20.4353 17.8759C21.4757 18.5002 21.6525 19.936 20.7945 20.7941C20.4233 21.1652 19.9439 21.3428 19.4689 21.3404C19.3949 21.3401 19.3212 21.3354 19.2478 21.3264Z"
-          fill="white"
-        />
+        <path d="M19.25 21.33c-.55-.07-1.06-.37-1.37-.89l-1.06-1.77c-.32-.53-.24-1.21.2-1.65.28-.29.67-.42 1.05-.39.21.01.41.07.6.19l1.77 1.06a1.9 1.9 0 0 1 .36 2.92c-.37.37-.85.55-1.33.54-.07 0-.15 0-.22-.01Z" />
       </svg>
 
-      {/* Search Text Input */}
       <input
         type="text"
         placeholder={placeholder}
         value={currentValue}
         onChange={onChange || ((e) => setInternalVal(e.target.value))}
-        className="h-[24px] flex-1 bg-transparent text-[20px] font-medium leading-[24px] text-white placeholder-white outline-none font-sans"
+        className="flex-1 bg-transparent text-[20px] font-medium text-white placeholder-zinc-400 outline-none"
       />
     </div>
   );
